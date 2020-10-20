@@ -20,9 +20,7 @@ function Order({order, fishes, removeFromOrder}) {
 
         return (
             <li key={key}>
-                {count} lbs {fish.name}
-
-                {formatPrice(count * fish.price)}
+                <span>{count} lbs {fish.name} <span>{formatPrice(count * fish.price)}</span></span>
 
                 <button className="button button--xs" onClick={() => removeFromOrder(key)}>Remove</button>
             </li>
@@ -45,7 +43,7 @@ function Order({order, fishes, removeFromOrder}) {
     return (
         <>
             <h2>Order</h2>
-            <ul>
+            <ul className="order-list top-spacing">
                 {orderKeys.map(key => renderOrder(key))}
             </ul>
             

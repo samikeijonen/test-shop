@@ -19,7 +19,7 @@ function EditFishForm({fish, index, updateFish, deleteFish}) {
     }
 
     return (
-        <form className="fish-edit" onSubmit={handleSubmit}>
+        <form className="fish-edit top-spacing" onSubmit={handleSubmit}>
             <label htmlFor="name">Name</label>
             <input
                 id="name"

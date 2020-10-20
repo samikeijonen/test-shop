@@ -25,7 +25,7 @@ function AddFishForm({addFish}) {
     }
 
     return (
-        <form className="fish-edit" onSubmit={createFish}>
+        <form className="fish-edit top-spacing" onSubmit={createFish}>
             <label htmlFor="name">Name</label>
             <input id="name" name="name" type="text" placeholder="Name" className="mt-2" />
             

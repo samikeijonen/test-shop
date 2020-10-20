@@ -40,6 +40,14 @@ button[disabled] {
   color: var(--c-primary-900);
 }
 
+.button--xs {
+  padding: 0.5rem 1rem;
+}
+
+a {
+  color: var(--c-primary-900);
+}
+
 input,
 select,
 textarea {
@@ -53,18 +61,34 @@ label {
   font-weight: 600;
 }
 
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+nav ul > li {
+  margin-right: 1.5rem;
+}
+
 .top-spacing {
   --space: 2rem;
   --space-sm: 1rem;
+  --space-xl: 4rem;
 }
 
-.top-spacing * + * {
+.top-spacing > * + * {
   margin-bottom: 0;
   margin-top: var(--space);
 }
 
-.top-spacing--small * + * {
+.top-spacing--small > * + * {
   margin-top: var(--space-sm);
+}
+
+.top-spacing--xl > * + * {
+  margin-top: var(--space-xl);
 }
 
 .App {
@@ -72,7 +96,8 @@ label {
   max-width: 75ch;
 }
 
-.fishes {
+.fishes,
+.order-list {
   list-style-type: none;
   padding: 0;
 }
@@ -83,6 +108,16 @@ label {
   padding-bottom: 4rem;
 }
 
+.order-list > li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-xl {
+  margin-top: 4rem;
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { Switch, Route, useParams, useRouteMatch } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header';
@@ -11,6 +11,7 @@ import sampleFishes from './sample-fishes';
 
 function App() {
   const { storeId } = useParams();
+  let { path } = useRouteMatch();
   
   // Get initial fishes and order from localstorage. 
   // Use function so it only loads at first run.
@@ -83,17 +84,29 @@ function App() {
 
   return (
     <div className="App">
-      <Header tagline="My tagline" />
+      <Header />
       <main className="catch-of-the-day">
-        <ul className="fishes">
-          {Object.keys(fishes).map(key => (
-            <Fish key={key} index={key} details={fishes[key]} addToOrder={addToOrder} />
-          ))}
-        </ul>
+        <Switch>
+          <Route exact path={path}>
+            <ul className="fishes">
+              {Object.keys(fishes).map(key => (
+                <Fish key={key} index={key} details={fishes[key]} addToOrder={addToOrder} />
+              ))}
+            </ul>
 
-        <Order fishes={fishes} order={order} removeFromOrder={removeFromOrder} />
+          {Object.keys(fishes).length === 0 
+              ? <button onClick={loadSampleFishes}>Load sample fishes</button> 
+              : ''}
+          </Route>
 
-        <Inventory addFish={addFish} updateFish={updateFish} deleteFish={deleteFish} loadSampleFishes={loadSampleFishes} fishes={fishes} />
+          <Route path={`${path}/checkout`}>
+            <Order fishes={fishes} order={order} removeFromOrder={removeFromOrder} />
+          </Route>
+ 
+          <Route path={`${path}/inventory`}>
+            <Inventory addFish={addFish} updateFish={updateFish} deleteFish={deleteFish} loadSampleFishes={loadSampleFishes} fishes={fishes} />
+          </Route>
+        </Switch>
       </main>
     </div>
   );
