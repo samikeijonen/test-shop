@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import StorePicker from './StorePicker';
 import NotFound from './NotFound';
 import App from './../App';
-import Inventory from './Inventory';
 
 function Router () {
     return (

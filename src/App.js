@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header';
@@ -9,23 +10,25 @@ import Fish from './components/Fish';
 import sampleFishes from './sample-fishes';
 
 function App(props) {
+  const { storeId } = useParams();
+  
   // Get initial fishes and order from localstorage. 
   // Use function so it only loads at first run.
-  const initialFishes = () => JSON.parse(localStorage.getItem(`${props.match.params.storeId}-fishes`)) || {};
-  const initialOrder = () => JSON.parse(localStorage.getItem(`${props.match.params.storeId}-order`)) || {};
+  const initialFishes = () => JSON.parse(localStorage.getItem(`${storeId}-fishes`)) || {};
+  const initialOrder = () => JSON.parse(localStorage.getItem(`${storeId}-order`)) || {};
 
   const [fishes, setFishes] = useState(initialFishes);
   const [order, setOrder] = useState(initialOrder);
 
   useEffect(() => {
     // Save fishes in localStorage. Expects a string, therefor JSON.stringify.
-    localStorage.setItem(`${props.match.params.storeId}-fishes`, JSON.stringify(fishes));
-  }, [fishes, props.match.params.storeId]);
+    localStorage.setItem(`${storeId}-fishes`, JSON.stringify(fishes));
+  }, [fishes, storeId]);
 
   useEffect(() => {
     // Save order in localStorage. Expects a string, therefor JSON.stringify.
-    localStorage.setItem(`${props.match.params.storeId}-order`, JSON.stringify(order));
-  }, [order, props.match.params.storeId]);
+    localStorage.setItem(`${storeId}-order`, JSON.stringify(order));
+  }, [order, storeId]);
 
   function addFish(fish) {
     setFishes({
