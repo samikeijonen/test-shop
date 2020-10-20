@@ -9,7 +9,7 @@ import Fish from './components/Fish';
 
 import sampleFishes from './sample-fishes';
 
-function App(props) {
+function App() {
   const { storeId } = useParams();
   
   // Get initial fishes and order from localstorage. 
