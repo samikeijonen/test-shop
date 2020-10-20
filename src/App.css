@@ -1,0 +1,88 @@
+:root {
+  --c-primary-100: #f3f3f3;
+  --c-primary-500: #555;
+  --c-primary-800: #222;
+  --c-primary-900: #111;
+
+  --white: #fff;
+}
+
+body,
+button,
+input,
+optgroup,
+select, 
+textarea {
+  color: var(--c-primary-500);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 1rem 2rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--c-primary-900);
+}
+
+button {
+  background-color: var(--c-primary-900);
+  border: 0;
+  color: var(--white);
+  font-weight: 500;
+  padding: 1rem 2rem;
+}
+
+button[disabled] {
+  background-color: var(--c-primary-100);
+  color: var(--c-primary-900);
+}
+
+input,
+select,
+textarea {
+  border: 2px solid var(--c-primary-900);
+  padding: 1rem;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+}
+
+.top-spacing {
+  --space: 2rem;
+  --space-sm: 1rem;
+}
+
+.top-spacing * + * {
+  margin-bottom: 0;
+  margin-top: var(--space);
+}
+
+.top-spacing--small * + * {
+  margin-top: var(--space-sm);
+}
+
+.App {
+  margin: 0 auto;
+  max-width: 75ch;
+}
+
+.fishes {
+  list-style-type: none;
+  padding: 0;
+}
+
+.fishes li {
+  border-bottom: 2px solid #f3f3f3;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
