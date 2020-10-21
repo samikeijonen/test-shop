@@ -84,7 +84,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header order={order} />
       <main className="catch-of-the-day">
         <Switch>
           <Route exact path={path}>
