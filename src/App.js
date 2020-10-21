@@ -11,7 +11,7 @@ import sampleFishes from './sample-fishes';
 
 function App() {
   const { storeId } = useParams();
-  let { path } = useRouteMatch();
+  const { path } = useRouteMatch();
   
   // Get initial fishes and order from localstorage. 
   // Use function so it only loads at first run.

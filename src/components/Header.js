@@ -13,7 +13,6 @@ function Header() {
                     <li><Link to={`${url}/checkout`}>Checkout</Link></li>
                     <li><Link to={`${url}/inventory`}>Inventory</Link></li>
                 </ul>
-
             </nav>
         </header>
     );
